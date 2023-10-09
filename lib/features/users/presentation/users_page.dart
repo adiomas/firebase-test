@@ -3,7 +3,7 @@ import 'package:firebase_test/features/users/presentation/widgets/user_card.dart
 import 'package:flutter/material.dart';
 import 'package:firebase_test/common/presentation/app_sizes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:q_architecture/src/domain/notifiers/base_state.dart';
+import 'package:q_architecture/base_state_notifier.dart';
 
 class UsersPage extends ConsumerWidget {
   static const routeName = '/users';
