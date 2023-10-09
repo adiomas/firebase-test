@@ -37,7 +37,7 @@ jobs:
 
     - name: Commit and push backup file
       run: |
-        git config user.email "121095adioma@gmail.com"
+        git config --global user.email "121095adioma@gmail.com"
         git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/adiomas/firebase-test.git
         git add backup/backup.json
         git commit -m "Automated backup" || exit 0  
