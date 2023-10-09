@@ -37,7 +37,8 @@ jobs:
 
     - name: Commit and push backup file
       run: |
-        git config user.email "121095adioma@gmail.com"
+        git config --global user.email "121095adioma@gmail.com"
+        git config --global user.name "adiomas"
         git add backup/backup.json
         git commit -m "Automated backup" || exit 0  
         git push origin main
