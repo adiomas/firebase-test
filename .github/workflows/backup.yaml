@@ -3,6 +3,7 @@ name: Backup Firestore
 on:
   schedule:
     - cron: '27 18 * * *'  
+  workflow_dispatch:
 
 jobs:
   backup:
