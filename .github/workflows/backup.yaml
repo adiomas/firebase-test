@@ -15,7 +15,7 @@ jobs:
       
     - name: Decode appConfig.json
       run: |
-        cat "${{ secrets.FIREBASE_SA_KEY }}" | base64 --decode > appConfig.json
+        echo "${{ secrets.FIREBASE_SA_KEY }}" | base64 --decode > appConfig.json
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
