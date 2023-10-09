@@ -1,0 +1,37 @@
+name: Backup Firestore
+
+on:
+  schedule:
+    - cron: '20 20 * * *'  
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      
+    - name: Decode appConfig.json
+      run: |
+        cat "${{ secrets.FIREBASE_SA_KEY }}" | base64 --decode > appConfig.json
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Firestore Import/Export Tool
+      run: |
+        npm install -g node-firestore-import-export
+
+    - name: Export Firestore Data
+      run: |
+        npx -p node-firestore-import-export firestore-export -a appConfig.json -b backup.json
+
+    - name: Commit and push backup file
+      run: |
+        git config user.email "121095adioma@gmail.com"
+        git add backup/backup.json
+        git commit -m "Automated backup" || exit 0  
+        git push origin main
