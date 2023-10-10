@@ -30,11 +30,11 @@ jobs:
       run: |
         npx -p node-firestore-import-export firestore-export -a appConfig.json -b backup.json
 
-    - name: Ensure backup.json exists
+    - name: Move backup.json to backup folder
       run: |
         mkdir -p backup
-        touch backup/backup.json
-
+        mv backup.json backup/backup.json
+        
     - name: Commit and push backup file
       run: |
         git config --global user.email "121095adioma@gmail.com"
