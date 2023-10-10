@@ -26,5 +26,5 @@ jobs:
 
     - name: Import Firestore Data
       run: |
-        npx -p node-firestore-import-export firestore-import -a appConfig.json -b backup/backup.json
+        npx -p node-firestore-import-export firestore-import -a appConfig.json -b backup/backup.json -y
 
