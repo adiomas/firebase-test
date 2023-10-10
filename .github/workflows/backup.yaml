@@ -20,7 +20,7 @@ jobs:
     - name: Print appConfig.json
       run: |
         cat appConfig.json
-        
+
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
@@ -38,6 +38,10 @@ jobs:
       run: |
         mkdir -p backup
         touch backup/backup.json
+
+    - name: Print backup.json
+      run: |
+        cat backup.json
 
     - name: Commit and push backup file
       run: |
