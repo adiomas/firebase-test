@@ -1,0 +1,30 @@
+name: Restore Firestore
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Firestore Import/Export Tool
+      run: |
+        npm install -g node-firestore-import-export
+
+    - name: Prepare appConfig.json
+      run: |
+        echo "${{ secrets.FIREBASE_SA_KEY }}" | base64 --decode > appConfig.json
+
+    - name: Import Firestore Data
+      run: |
+        npx -p node-firestore-import-export firestore-import -a appConfig.json -b backup/backup.json
+
