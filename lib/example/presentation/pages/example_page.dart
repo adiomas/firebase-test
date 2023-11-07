@@ -38,7 +38,7 @@ class ExamplePage extends ConsumerWidget {
                 BaseInitial() => 'Initial',
                 BaseError(failure: final failure) => failure.toString(),
               },
-              style: context.appTextStyles.regular
+              style: context.appTextStyles.semiBoldMedium
                   ?.copyWith(color: context.appColors.secondary),
             ),
 
@@ -48,7 +48,7 @@ class ExamplePage extends ConsumerWidget {
                   .getSomeStringFullExample,
               child: Text(
                 'Get string',
-                style: context.appTextStyles.bold,
+                style: context.appTextStyles.semiBoldMedium,
               ),
             ),
             TextButton(
@@ -57,7 +57,7 @@ class ExamplePage extends ConsumerWidget {
                   .getSomeStringGlobalLoading,
               child: Text(
                 'Global loading example',
-                style: context.appTextStyles.bold,
+                style: context.appTextStyles.semiBoldMedium,
               ),
             ),
             TextButton(
@@ -66,7 +66,7 @@ class ExamplePage extends ConsumerWidget {
                   .getSomeStringsStreamed,
               child: Text(
                 'Cache + Network loading example',
-                style: context.appTextStyles.bold,
+                style: context.appTextStyles.semiBoldMedium,
               ),
             ),
             const SizedBox(height: 20),
@@ -76,34 +76,36 @@ class ExamplePage extends ConsumerWidget {
                   .update((_) => 'Random ${Random().nextInt(100)}'),
               child: Text(
                 'Update filters (to trigger reload of data)',
-                style: context.appTextStyles.bold,
+                style: context.appTextStyles.semiBoldMedium,
               ),
             ),
             TextButton(
               onPressed: () => QLogger.showLogger(context),
-              child: Text('Show log', style: context.appTextStyles.bold),
+              child:
+                  Text('Show log', style: context.appTextStyles.semiBoldMedium),
             ),
             //Navigation example
             TextButton(
               onPressed: () => ref.pushNamed(ExampleSimplePage.routeName),
-              child: Text('Navigate', style: context.appTextStyles.bold),
+              child:
+                  Text('Navigate', style: context.appTextStyles.semiBoldMedium),
             ),
             TextButton(
               onPressed: () => ref.pushNamed(FormExamplePage.routeName),
-              child:
-                  Text('Go to form example', style: context.appTextStyles.bold),
+              child: Text('Go to form example',
+                  style: context.appTextStyles.semiBoldMedium),
             ),
             TextButton(
               onPressed: () => ref.pushNamed(PaginationExamplePage.routeName),
-              child:
-                  Text('Go to pagination', style: context.appTextStyles.bold),
+              child: Text('Go to pagination',
+                  style: context.appTextStyles.semiBoldMedium),
             ),
             TextButton(
               onPressed: () =>
                   ref.pushNamed(PaginationStreamExamplePage.routeName),
               child: Text(
                 'Go to stream pagination',
-                style: context.appTextStyles.bold,
+                style: context.appTextStyles.semiBoldMedium,
               ),
             ),
           ],
@@ -141,7 +143,7 @@ class _ExampleSimplePageState extends ConsumerState<ExampleSimplePage>
               error: (failure) => failure.title,
             ),
             textAlign: TextAlign.center,
-            style: context.appTextStyles.regular,
+            style: context.appTextStyles.semiBoldMedium,
           ),
           TextButton(
             onPressed: () {
@@ -154,7 +156,7 @@ class _ExampleSimplePageState extends ConsumerState<ExampleSimplePage>
             },
             child: Text(
               'Simple state example with debounce',
-              style: context.appTextStyles.bold,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
           TextButton(
@@ -163,14 +165,14 @@ class _ExampleSimplePageState extends ConsumerState<ExampleSimplePage>
                 .getSomeStringSimpleExampleGlobalLoading,
             child: Text(
               'Global loading example',
-              style: context.appTextStyles.bold,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
           ElevatedButton(
             onPressed: ref.pop,
             child: Text(
               'Go back!',
-              style: context.appTextStyles.bold
+              style: context.appTextStyles.semiBoldMedium
                   ?.copyWith(color: context.appColors.background),
             ),
           ),
@@ -178,7 +180,7 @@ class _ExampleSimplePageState extends ConsumerState<ExampleSimplePage>
             onPressed: () => ref.pushNamed(ExamplePage3.routeName),
             child: Text(
               'Navigate',
-              style: context.appTextStyles.bold,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
         ],
@@ -207,7 +209,7 @@ class ExamplePage3 extends ConsumerWidget {
             },
             child: Text(
               'Go back!',
-              style: context.appTextStyles.bold
+              style: context.appTextStyles.semiBoldMedium
                   ?.copyWith(color: context.appColors.background),
             ),
           ),

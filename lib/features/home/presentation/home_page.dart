@@ -22,6 +22,11 @@ class HomePage extends ConsumerWidget {
     return switch (authState) {
       AuthStateAuthenticated() => Scaffold(
           body: navigationShell ?? child,
+          appBar: navigationShell?.currentIndex == 0
+              ? AppBar(
+                  title: Text(BottomNavigationItem.values[0].title),
+                )
+              : null,
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             items: BottomNavigationItem.values

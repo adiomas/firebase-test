@@ -1,6 +1,9 @@
 import 'package:firebase_test/common/domain/providers/base_router_provider.dart';
-import 'package:firebase_test/features/auth/data/repository/auth_repository.dart';
+import 'package:firebase_test/features/auth/data/repositories/auth_repository.dart';
+import 'package:firebase_test/features/auth/domain/entities/auth.dart';
+import 'package:firebase_test/features/auth/domain/entities/login_type.dart';
 import 'package:firebase_test/features/auth/domain/notifiers/auth_state.dart';
+import 'package:firebase_test/features/auth/forms/auth_form.dart';
 import 'package:firebase_test/features/home/presentation/home_page.dart';
 import 'package:firebase_test/features/login/presentation/login_page.dart';
 import 'package:flutter/foundation.dart';
@@ -15,19 +18,21 @@ final authNotifierProvider = NotifierProvider<AuthNotifier, AuthState>(
 
 class AuthNotifier extends Notifier<AuthState> implements Listenable {
   late final AuthRepository _authRepository;
+  late final FormMapper<Auth> _loginFormMapper;
   VoidCallback? _routerListener;
   String? _deepLink;
 
   @override
   AuthState build() {
     _authRepository = ref.watch(authRepositoryProvider);
+    _loginFormMapper = ref.watch(authFormMapperProvider);
     return const AuthState.initial();
   }
 
   Future<void> checkIfAuthenticated() async {
     await 100.milliseconds;
     ref.read(globalLoadingProvider.notifier).update((_) => true);
-    final result = await _authRepository.getTokenIfAuthenticated();
+    final result = await _authRepository.getUserIfAuthenticated();
     result.fold(
       (failure) {
         ref.read(globalLoadingProvider.notifier).update((_) => false);
@@ -35,25 +40,37 @@ class AuthNotifier extends Notifier<AuthState> implements Listenable {
         state = const AuthState.unauthenticated();
         _routerListener?.call();
       },
-      (token) {
+      (user) {
         ref.read(globalLoadingProvider.notifier).update((_) => false);
-        state = token != null
-            ? const AuthState.authenticated()
+        state = user != null
+            ? AuthState.authenticated(
+                user,
+              )
             : const AuthState.unauthenticated();
         _routerListener?.call();
       },
     );
   }
 
+  void submitLoginForm({
+    required Map<String, dynamic> formMap,
+    required LoginType loginType,
+  }) {
+    final auth = _loginFormMapper(formMap);
+    login(email: auth.email, password: auth.password, loginType: loginType);
+  }
+
   Future<void> login({
     required String email,
     required String password,
+    required LoginType loginType,
   }) async {
     ref.read(globalLoadingProvider.notifier).update((_) => true);
-    state = const AuthState.authenticating();
+    state = AuthState.authenticating(loginType);
     final result = await _authRepository.login(
       email: email,
       password: password,
+      loginType: loginType,
     );
     result.fold(
       (failure) {
@@ -62,16 +79,18 @@ class AuthNotifier extends Notifier<AuthState> implements Listenable {
         state = const AuthState.unauthenticated();
         _routerListener?.call();
       },
-      (response) {
+      (user) {
         ref.read(globalLoadingProvider.notifier).update((_) => false);
-        state = const AuthState.authenticated();
+        state = AuthState.authenticated(user);
         _routerListener?.call();
       },
     );
   }
 
   Future<void> logout() async {
-    await 500.milliseconds;
+    ref.read(globalLoadingProvider.notifier).update((_) => true);
+    await _authRepository.logout();
+    ref.read(globalLoadingProvider.notifier).update((_) => false);
     state = const AuthState.unauthenticated();
     _routerListener?.call();
   }

@@ -6,7 +6,7 @@ import 'app_text_styles.dart';
 
 final primaryTheme = _getTheme(
   appColors: const AppColors(
-    defaultColor: Color(0xFF2196F3),
+    defaultColor: Color.fromARGB(255, 100, 61, 198),
     secondary: Color(0xFF000000),
     background: Color(0xFFFFFFFF),
   ),

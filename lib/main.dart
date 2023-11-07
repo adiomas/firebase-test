@@ -1,6 +1,7 @@
 // ignore_for_file: always_use_package_imports
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_test/features/auth/domain/notifiers/auth_notifier.dart';
 import 'package:firebase_test/firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +55,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final baseRouter = ref.watch(baseRouterProvider);
+    ref.watch(authNotifierProvider);
     return MaterialApp.router(
       debugShowCheckedModeBanner: EnvInfo.environment != AppEnvironment.PROD,
       title: EnvInfo.appTitle,

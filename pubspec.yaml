@@ -31,7 +31,7 @@ dependencies:
   intl: ^0.18.1
   json_annotation: ^4.8.1
   loggy: ^2.0.3
-  q_architecture: ^0.1.5
+  q_architecture: ^0.1.7
   retrofit: ^4.0.1
   reusable_widgets_docs_generator:
     git:
@@ -42,6 +42,11 @@ dependencies:
   go_router: ^11.1.2
   firebase_core: ^2.17.0
   cloud_firestore: ^4.9.3
+  flutter_svg: ^2.0.9
+  remove_emoji_input_formatter: ^0.0.1+1
+  shared_preferences: ^2.2.2
+  firebase_auth: ^4.12.1
+  another_flushbar: ^1.12.30
 
 dev_dependencies:
   build_runner: ^2.4.6
@@ -61,4 +66,3 @@ flutter:
 
   assets:
     - assets/images/
-

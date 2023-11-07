@@ -7,8 +7,7 @@ import 'package:firebase_test/common/presentation/build_context_extensions.dart'
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class DirectoriesPage extends ConsumerWidget {
-  static const routeName = '/directories';
-  static String pathPattern(int level) => ':directoryName$level';
+  static const routeName = '/settings';
 
   const DirectoriesPage({
     super.key,
@@ -28,25 +27,25 @@ class DirectoriesPage extends ConsumerWidget {
             onPressed: ref.pop,
             child: Text(
               'Go back',
-              style: context.appTextStyles.regular,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
-          const SizedBox(height: AppSizes.normalSpacing),
+          const SizedBox(height: AppSizes.borderRadius16),
         ],
         Text(
           'Directories: $directoryName',
-          style: context.appTextStyles.boldLarge,
+          style: context.appTextStyles.semiBoldLarge,
           textAlign: TextAlign.center,
         ),
         if (canGoDeeper) ...[
-          const SizedBox(height: AppSizes.normalSpacing),
+          const SizedBox(height: AppSizes.borderRadius16),
           TextButton(
             onPressed: () => ref.pushNamed(ref.getRouteNameFromCurrentLocation(
               '/${Random().nextInt(100)}',
             )),
             child: Text(
               'Open child directory',
-              style: context.appTextStyles.regular,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
         ],

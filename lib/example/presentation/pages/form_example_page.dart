@@ -41,7 +41,7 @@ class FormExamplePage extends ConsumerWidget {
                   ExampleUserForm.minLengthName(),
                   ExampleUserForm.maxLengthName(),
                 ]),
-                style: context.appTextStyles.regular,
+                style: context.appTextStyles.semiBoldMedium,
               ),
               FormBuilderTextField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -50,7 +50,7 @@ class FormExamplePage extends ConsumerWidget {
                   ExampleUserForm.minLengthName(),
                   ExampleUserForm.maxLengthName(),
                 ]),
-                style: context.appTextStyles.regular,
+                style: context.appTextStyles.semiBoldMedium,
               ),
               FormBuilderDateTimePicker(
                 name: ExampleUserForm.birthdayKey,
@@ -59,7 +59,7 @@ class FormExamplePage extends ConsumerWidget {
                 ]),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 inputType: InputType.date,
-                style: context.appTextStyles.regular,
+                style: context.appTextStyles.semiBoldMedium,
               ),
               FormBuilderField<String>(
                 name: ExampleUserForm.genderKey,
@@ -75,7 +75,7 @@ class FormExamplePage extends ConsumerWidget {
                                 value: gender.name,
                                 child: Text(
                                   gender.name,
-                                  style: context.appTextStyles.regular,
+                                  style: context.appTextStyles.semiBoldMedium,
                                 ),
                               ))
                           .toList(),
@@ -84,7 +84,7 @@ class FormExamplePage extends ConsumerWidget {
                                 value: gender.name,
                                 child: Text(
                                   gender.name,
-                                  style: context.appTextStyles.regular,
+                                  style: context.appTextStyles.semiBoldMedium,
                                 ),
                               ))
                           .toList(),
@@ -96,7 +96,7 @@ class FormExamplePage extends ConsumerWidget {
                     if (field.hasError && !field.isValid)
                       Text(
                         field.errorText!,
-                        style: context.appTextStyles.regular
+                        style: context.appTextStyles.semiBoldMedium
                             ?.copyWith(color: Colors.red),
                       ),
                   ],

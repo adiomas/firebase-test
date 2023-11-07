@@ -21,7 +21,7 @@ class NotificationDetailsPage extends ConsumerWidget {
         children: [
           Text(
             'Notification id: $notificationId',
-            style: context.appTextStyles.boldLarge,
+            style: context.appTextStyles.extraBoldLarge,
             textAlign: TextAlign.center,
           ),
         ],

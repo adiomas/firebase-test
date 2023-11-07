@@ -24,7 +24,7 @@ class PaginationExamplePage extends ConsumerWidget {
         emptyListBuilder: (refresh) => Center(
           child: Text(
             'list empty',
-            style: context.appTextStyles.regular,
+            style: context.appTextStyles.semiBoldMedium,
           ),
         ),
         onError: (failure, listIsEmpty, onRefresh) {
@@ -35,13 +35,13 @@ class PaginationExamplePage extends ConsumerWidget {
               children: [
                 Text(
                   'Error: $failure',
-                  style: context.appTextStyles.regular,
+                  style: context.appTextStyles.semiBoldMedium,
                 ),
                 TextButton(
                   onPressed: onRefresh,
                   child: Text(
                     'Refresh',
-                    style: context.appTextStyles.bold,
+                    style: context.appTextStyles.semiBoldMedium,
                   ),
                 ),
               ],
@@ -64,7 +64,7 @@ class _PaginationExampleTile extends StatelessWidget {
       padding: const EdgeInsets.all(30),
       child: Text(
         word,
-        style: context.appTextStyles.boldLarge,
+        style: context.appTextStyles.semiBoldLarge,
       ),
     );
   }

@@ -18,44 +18,44 @@ class NotificationsPage extends ConsumerWidget {
       children: [
         Text(
           'Notifications',
-          style: context.appTextStyles.boldLarge,
+          style: context.appTextStyles.semiBoldLarge,
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: AppSizes.normalSpacing),
+        const SizedBox(height: AppSizes.borderRadius16),
         TextButton(
           onPressed: () => ref.pushNamed(DashboardPage.routeName),
           child: Text(
             'Go to dashboard',
-            style: context.appTextStyles.regular,
+            style: context.appTextStyles.semiBoldMedium,
           ),
         ),
-        const SizedBox(height: AppSizes.normalSpacing),
+        const SizedBox(height: AppSizes.borderRadius16),
         TextButton(
           onPressed: () => ref.pushNamed(ref.getRouteNameFromCurrentLocation(
             NotificationDetailsPage.getRouteNameWithParams(1),
           )),
           child: Text(
             'Notification details 1',
-            style: context.appTextStyles.regular,
+            style: context.appTextStyles.semiBoldMedium,
           ),
         ),
-        const SizedBox(height: AppSizes.normalSpacing),
+        const SizedBox(height: AppSizes.borderRadius16),
         TextButton(
           onPressed: () => ref.pushNamed(ref.getRouteNameFromCurrentLocation(
             NotificationDetailsPage.getRouteNameWithParams(2),
           )),
           child: Text(
             'Notification details 2',
-            style: context.appTextStyles.regular,
+            style: context.appTextStyles.semiBoldMedium,
           ),
         ),
-        const SizedBox(height: AppSizes.normalSpacing),
+        const SizedBox(height: AppSizes.borderRadius16),
         TextButton(
           onPressed: () => ref.pushNamed(ref
               .getRouteNameFromCurrentLocation(AllNotificationsPage.routeName)),
           child: Text(
             'All notifications',
-            style: context.appTextStyles.regular,
+            style: context.appTextStyles.semiBoldMedium,
           ),
         ),
       ],

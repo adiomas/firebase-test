@@ -1,5 +1,5 @@
 import 'package:firebase_test/features/auth/domain/entities/user.dart';
-import 'package:firebase_test/features/users/data/repositories/users_repository.dart';
+import 'package:firebase_test/features/settings/data/repositories/users_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:q_architecture/base_state_notifier.dart';
 

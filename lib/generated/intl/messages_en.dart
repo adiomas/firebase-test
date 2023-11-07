@@ -22,9 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "active": MessageLookupByLibrary.simpleMessage("Active"),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "add_todo": MessageLookupByLibrary.simpleMessage("Add Todo"),
+        "all": MessageLookupByLibrary.simpleMessage("All"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enter_your_email": MessageLookupByLibrary.simpleMessage(
+            "Please enter your email to continue."),
+        "enter_your_password": MessageLookupByLibrary.simpleMessage(
+            "Please enter your password to continue."),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "login_with_firebase":
+            MessageLookupByLibrary.simpleMessage("Login with Firebase"),
+        "login_with_supabase":
+            MessageLookupByLibrary.simpleMessage("Login with Supabase"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "not_valid_email":
+            MessageLookupByLibrary.simpleMessage("Not a valid e-mail address"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
         "permission_denied": MessageLookupByLibrary.simpleMessage(
             "Permission has been denied, please enable it in device settings"),
+        "required_field":
+            MessageLookupByLibrary.simpleMessage("This field is required"),
+        "title": MessageLookupByLibrary.simpleMessage("Title*"),
         "unknown_error_occurred":
-            MessageLookupByLibrary.simpleMessage("Unknown error occurred")
+            MessageLookupByLibrary.simpleMessage("Unknown error occurred"),
+        "write_here": MessageLookupByLibrary.simpleMessage("Write here"),
+        "your_email": MessageLookupByLibrary.simpleMessage("Your email"),
+        "your_password": MessageLookupByLibrary.simpleMessage("Your password")
       };
 }

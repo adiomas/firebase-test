@@ -21,7 +21,8 @@ class PaginationStreamExamplePage extends StatelessWidget {
       body: PaginatedListView(
         itemBuilder: (context, word) => _PaginationExampleTile(word),
         emptyListBuilder: (refresh) => Center(
-          child: Text('list empty', style: context.appTextStyles.regular),
+          child:
+              Text('list empty', style: context.appTextStyles.semiBoldMedium),
         ),
         autoDisposeStateNotifier: paginatedStreamNotifierProvider,
         onError: (failure, listIsEmpty, onRefresh) {
@@ -43,7 +44,7 @@ class _PaginationExampleTile extends StatelessWidget {
       padding: const EdgeInsets.all(30),
       child: Text(
         word,
-        style: context.appTextStyles.boldLarge,
+        style: context.appTextStyles.semiBoldLarge,
       ),
     );
   }

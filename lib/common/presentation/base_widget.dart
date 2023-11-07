@@ -1,5 +1,6 @@
 // ignore_for_file: always_use_package_imports
 
+import 'package:firebase_test/common/utils/firebase_test_flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:loggy/loggy.dart';
@@ -74,13 +75,12 @@ extension _WidgetRefExtensions on WidgetRef {
   void globalFailureListener() {
     listen<Failure?>(globalFailureProvider, (_, failure) {
       if (failure == null) return;
-      //Show global error
-      logError('''
-        showing ${failure.isCritical ? '' : 'non-'}critical failure with 
-        title ${failure.title}, 
-        error: ${failure.error},
-        stackTrace: ${failure.stackTrace}
-      ''');
+      FirebaseTestFlushbar().showFlushbar(
+        context: read(baseRouterProvider).navigatorContext!,
+        ref: this,
+        message: failure.title,
+        globalInfoStatus: GlobalInfoStatus.error,
+      );
     });
   }
 

@@ -69,6 +69,226 @@ class S {
       args: [],
     );
   }
+
+  /// `This field is required`
+  String get required_field {
+    return Intl.message(
+      'This field is required',
+      name: 'required_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not a valid e-mail address`
+  String get not_valid_email {
+    return Intl.message(
+      'Not a valid e-mail address',
+      name: 'not_valid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password to continue.`
+  String get enter_your_password {
+    return Intl.message(
+      'Please enter your password to continue.',
+      name: 'enter_your_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email to continue.`
+  String get enter_your_email {
+    return Intl.message(
+      'Please enter your email to continue.',
+      name: 'enter_your_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your email`
+  String get your_email {
+    return Intl.message(
+      'Your email',
+      name: 'your_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password`
+  String get your_password {
+    return Intl.message(
+      'Your password',
+      name: 'your_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Firebase`
+  String get login_with_firebase {
+    return Intl.message(
+      'Login with Firebase',
+      name: 'login_with_firebase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Supabase`
+  String get login_with_supabase {
+    return Intl.message(
+      'Login with Supabase',
+      name: 'login_with_supabase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Todo`
+  String get add_todo {
+    return Intl.message(
+      'Add Todo',
+      name: 'add_todo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Title*`
+  String get title {
+    return Intl.message(
+      'Title*',
+      name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write here`
+  String get write_here {
+    return Intl.message(
+      'Write here',
+      name: 'write_here',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completed`
+  String get completed {
+    return Intl.message(
+      'Completed',
+      name: 'completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get active {
+    return Intl.message(
+      'Active',
+      name: 'active',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

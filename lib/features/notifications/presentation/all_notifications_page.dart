@@ -22,37 +22,37 @@ class AllNotificationsPage extends ConsumerWidget {
             )),
             child: Text(
               'Notification details 1',
-              style: context.appTextStyles.regular,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
-          const SizedBox(height: AppSizes.normalSpacing),
+          const SizedBox(height: AppSizes.borderRadius16),
           TextButton(
             onPressed: () => ref.pushNamed(ref.getRouteNameFromCurrentLocation(
               NotificationDetailsPage.getRouteNameWithParams(2),
             )),
             child: Text(
               'Notification details 2',
-              style: context.appTextStyles.regular,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
-          const SizedBox(height: AppSizes.normalSpacing),
+          const SizedBox(height: AppSizes.borderRadius16),
           TextButton(
             onPressed: () => ref.pushNamed(ref.getRouteNameFromCurrentLocation(
               NotificationDetailsPage.getRouteNameWithParams(3),
             )),
             child: Text(
               'Notification details 3',
-              style: context.appTextStyles.regular,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
-          const SizedBox(height: AppSizes.normalSpacing),
+          const SizedBox(height: AppSizes.borderRadius16),
           TextButton(
             onPressed: () => ref.pushNamed(ref.getRouteNameFromCurrentLocation(
               NotificationDetailsPage.getRouteNameWithParams(4),
             )),
             child: Text(
               'Notification details 4',
-              style: context.appTextStyles.regular,
+              style: context.appTextStyles.semiBoldMedium,
             ),
           ),
         ],
