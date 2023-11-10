@@ -29,8 +29,6 @@ abstract class $TodoStateCopyWith<$Res> {
       _$TodoStateCopyWithImpl<$Res, TodoState>;
   @useResult
   $Res call({Todo todo});
-
-  $TodoCopyWith<$Res> get todo;
 }
 
 /// @nodoc
@@ -55,14 +53,6 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
               as Todo,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TodoCopyWith<$Res> get todo {
-    return $TodoCopyWith<$Res>(_value.todo, (value) {
-      return _then(_value.copyWith(todo: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -73,9 +63,6 @@ abstract class _$$_TodoStateCopyWith<$Res> implements $TodoStateCopyWith<$Res> {
   @override
   @useResult
   $Res call({Todo todo});
-
-  @override
-  $TodoCopyWith<$Res> get todo;
 }
 
 /// @nodoc

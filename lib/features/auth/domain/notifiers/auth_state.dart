@@ -1,43 +1,40 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_test/features/auth/domain/entities/login_type.dart';
 
-sealed class AuthState extends Equatable {
+sealed class AuthState<T> extends Equatable {
   const AuthState();
 
   const factory AuthState.initial() = AuthStateInitial;
-  const factory AuthState.authenticating(LoginType loginType) =
-      AuthStateAuthenticating;
+  const factory AuthState.authenticating() = AuthStateAuthenticating;
   const factory AuthState.authenticated(
-    User? user,
+    T? user,
   ) = AuthStateAuthenticated;
+
   const factory AuthState.unauthenticated() = AuthStateUnauthenticated;
 }
 
-final class AuthStateInitial extends AuthState {
+final class AuthStateInitial<T> extends AuthState<T> {
   const AuthStateInitial();
 
   @override
   List<Object?> get props => [];
 }
 
-final class AuthStateAuthenticating extends AuthState {
-  final LoginType loginType;
-  const AuthStateAuthenticating(this.loginType);
+final class AuthStateAuthenticating<T> extends AuthState<T> {
+  const AuthStateAuthenticating();
 
   @override
-  List<Object?> get props => [loginType];
+  List<Object?> get props => [];
 }
 
-final class AuthStateAuthenticated extends AuthState {
-  final User? user;
+final class AuthStateAuthenticated<T> extends AuthState<T> {
+  final T? user;
   const AuthStateAuthenticated(this.user);
 
   @override
   List<Object?> get props => [];
 }
 
-final class AuthStateUnauthenticated extends AuthState {
+final class AuthStateUnauthenticated<T> extends AuthState<T> {
   const AuthStateUnauthenticated();
 
   @override

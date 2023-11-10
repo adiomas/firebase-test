@@ -11,6 +11,7 @@ import 'package:flutter_loggy/flutter_loggy.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:loggy/loggy.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'common/domain/providers/base_router_provider.dart';
 import 'common/presentation/base_widget.dart';
@@ -26,6 +27,12 @@ Future<void> mainCommon(AppEnvironment environment) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await Supabase.initialize(
+    url: EnvInfo.supabaseUrl,
+    anonKey: EnvInfo.supabaseAnonKey,
+  );
+
   Loggy.initLoggy(
     logPrinter: !EnvInfo.isProduction || kDebugMode
         ? StreamPrinter(const PrettyDeveloperPrinter())
